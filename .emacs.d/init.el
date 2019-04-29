@@ -17,10 +17,205 @@
 ;; update Cask file upon pakcage install
 (require 'pallet)
 (pallet-mode t)
+(tabbar-mode t)
+(require 'ox-confluence)
+
+(load-file "~/.emacs.d/ob-xml.el")
+(require 'ob-xml)
+(setq auto-save-default nil)
 
 (load-theme 'dark-laptop t t)
 (enable-theme 'dark-laptop)
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#002b36" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#839496"])
+ '(column-number-mode t)
+ '(compilation-message-face (quote default))
+ '(completion-styles (quote (basic emacs22)))
+ '(confluence-url "https://wiki.ucern.com")
+ '(custom-safe-themes
+   (quote
+    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" default)))
+ '(ecb-excluded-directories-regexps (quote ("^\\(CVS\\)$" "^\\.$" "^\\.\\.$" "^\\.git$")))
+ '(ecb-layout-name "left15")
+ '(ecb-options-version "2.40")
+ '(ecb-other-window-behavior (quote only-edit))
+ '(ecb-source-path (quote (("/" "/"))))
+ '(ede-project-directories
+   (quote
+    ("/home/fb019397/Documents/Prod/haskell/shakespeare/shakespeare")))
+ '(fci-rule-color "#073642")
+ '(flycheck-highlighting-mode (quote sexps))
+ '(flymake-log-level 3)
+ '(font-use-system-font t)
+ '(haskell-process-args-ghci (quote ("ghci -ferror-spans")))
+ '(haskell-process-path-ghci "stack-ghci")
+ '(haskell-process-type (quote stack-ghci))
+ '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
+ '(highlight-tail-colors
+   (quote
+    (("#073642" . 0)
+     ("#546E00" . 20)
+     ("#00736F" . 30)
+     ("#00629D" . 50)
+     ("#7B6000" . 60)
+     ("#8B2C02" . 70)
+     ("#93115C" . 85)
+     ("#073642" . 100))))
+ '(inhibit-startup-screen t)
+ '(js3-boring-indentation t)
+ '(js3-consistent-level-indent-inner-bracket t)
+ '(js3-enter-indents-newline t)
+ '(js3-expr-indent-offset 4)
+ '(js3-indent-dots t)
+ '(js3-indent-level 4)
+ '(magit-diff-use-overlays nil)
+ '(org-agenda-files (quote ("~/Documents/org/todo.org")))
+ '(org-babel-load-languages
+   (quote
+    ((emacs-lisp . t)
+     (java . t)
+     (plantuml . t)
+     (dot . t))))
+ '(org-confirm-babel-evaluate nil)
+ '(org-directory "~/Documents/org")
+ '(org-enforce-todo-checkbox-dependencies t)
+ '(org-enforce-todo-dependencies t)
+ '(org-export-backends (quote (ascii html icalendar latex odt confluence s5)))
+ '(org-export-with-sub-superscripts (quote {}))
+ '(org-goto-interface (quote outline-path-completion))
+ '(org-html-htmlize-output-type (quote css))
+ '(org-image-actual-width nil)
+ '(org-plantuml-jar-path "/home/fb019397/local/plantuml.jar")
+ '(org-refile-active-region-within-subtree t)
+ '(org-refile-allow-creating-parent-nodes (quote confirm))
+ '(org-refile-targets
+   (quote
+    ((org-agenda-files :tag . "")
+     ("todoProcess.org" :maxlevel . 9)
+     ("todoPersonal.org" :maxlevel . 9))))
+ '(org-refile-use-outline-path (quote file))
+ '(org-src-fontify-natively t)
+ '(org-startup-indented t)
+ '(org-startup-with-inline-images t)
+ '(org-structure-template-alist
+   (quote
+    (("a" . "export ascii")
+     ("c" . "center")
+     ("C" . "comment")
+     ("e" . "example")
+     ("E" . "export")
+     ("h" . "export html")
+     ("l" . "export latex")
+     ("q" . "quote")
+     ("s" . "src")
+     ("v" . "verse"))))
+ '(org-tag-faces (quote (("" . "grey"))))
+ '(org-tag-persistent-alist
+   (quote
+    (("Stephane" . 83)
+     ("Zeljka" . 90)
+     ("Acher" . 65)
+     ("Freiric" . 70)
+     ("1.3.0" . 0)
+     ("1.2.2" . 0))))
+ '(org-todo-keywords (quote ((sequence "DOING" "TODO" "|" "DONE" "CANCELLED"))))
+ '(package-archives
+   (quote
+    (("gelpy" . "https://jorgenschaefer.github.io/packages/")
+     ("gnu" . "http://elpa.gnu.org/packages/")
+     ("melpa" . "http://melpa.org/packages/")
+     ("org" . "https://orgmode.org/elpa/")
+     ("melpa-stable" . "http://stable.melpa.org/packages/"))))
+ '(package-hidden-regexps (quote ("\\`org-mode")))
+ '(package-selected-packages
+   (quote
+    (org-re-reveal yaml-mode groovy-mode nsis-mode org-plus-contrib ox-reveal plantuml-mode flymd markdown-preview-eww confluence org org-preview-html jdee jar-manifest-mode tabbar wrap-region web-mode w3m visual-regexp use-package typescript-mode solarized-theme smex smartparens smart-tabs-mode smart-mode-line projectile prodigy popwin pallet nyan-mode multiple-cursors markdown-mode magit js3-mode intero idle-highlight-mode htmlize flycheck-hdevtools flycheck-haskell flycheck-color-mode-line flycheck-cask expand-region exec-path-from-shell elpy ecb drag-stuff color-theme auctex)))
+ '(safe-local-variable-values
+   (quote
+    ((TeX-master . "cvger")
+     (header-auto-update-enabled))))
+ '(show-paren-mode t)
+ '(sql-oracle-program "sqlplus64")
+ '(syslog-debug-face
+   (quote
+    ((t :background unspecified :foreground "#2aa198" :weight bold))))
+ '(syslog-error-face
+   (quote
+    ((t :background unspecified :foreground "#dc322f" :weight bold))))
+ '(syslog-hour-face (quote ((t :background unspecified :foreground "#859900"))))
+ '(syslog-info-face
+   (quote
+    ((t :background unspecified :foreground "#268bd2" :weight bold))))
+ '(syslog-ip-face (quote ((t :background unspecified :foreground "#b58900"))))
+ '(syslog-su-face (quote ((t :background unspecified :foreground "#d33682"))))
+ '(syslog-warn-face
+   (quote
+    ((t :background unspecified :foreground "#cb4b16" :weight bold))))
+ '(tool-bar-mode nil)
+ '(vc-annotate-background nil)
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#dc322f")
+     (40 . "#CF4F1F")
+     (60 . "#C26C0F")
+     (80 . "#b58900")
+     (100 . "#AB8C00")
+     (120 . "#A18F00")
+     (140 . "#989200")
+     (160 . "#8E9500")
+     (180 . "#859900")
+     (200 . "#729A1E")
+     (220 . "#609C3C")
+     (240 . "#4E9D5B")
+     (260 . "#3C9F79")
+     (280 . "#2aa198")
+     (300 . "#299BA6")
+     (320 . "#2896B5")
+     (340 . "#2790C3")
+     (360 . "#268bd2"))))
+ '(vc-annotate-very-old-color nil)
+ '(weechat-color-list
+   (quote
+    (unspecified "#002b36" "#073642" "#990A1B" "#dc322f" "#546E00" "#859900" "#7B6000" "#b58900" "#00629D" "#268bd2" "#93115C" "#d33682" "#00736F" "#2aa198" "#839496" "#657b83"))))
+
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 98 :width normal))))
+ '(ecb-tag-header-face ((t (:background "gray15"))) t)
+ '(flycheck-color-mode-line-error-face ((t (:inherit nil :background "red4" :foreground "black" :weight extra-bold))))
+ '(flycheck-color-mode-line-warning-face ((t (:inherit nil :background "navy" :foreground "black" :weight normal))))
+ '(flycheck-error ((t (:inherit error :background "red" :underline t))))
+ '(flycheck-warning ((t (:inherit nil :background "dim gray"))))
+ '(org-document-title ((t (:inherit default :weight bold :foreground "white" :font "Verdana" :height 1.5 :underline nil))))
+ '(org-level-1 ((t (:inherit default :weight bold :foreground "white" :font "Verdana" :height 1.75))))
+ '(org-level-2 ((t (:inherit default :weight bold :foreground "white" :font "Verdana" :height 1.5))))
+ '(org-level-3 ((t (:inherit default :weight bold :foreground "white" :font "Verdana" :height 1.25))))
+ '(org-level-4 ((t (:inherit default :weight bold :foreground "white" :font "Verdana" :height 1.1))))
+ '(org-level-5 ((t (:inherit default :weight bold :foreground "white" :font "Verdana"))))
+ '(org-level-6 ((t (:inherit default :weight bold :foreground "white" :font "Verdana"))))
+ '(org-level-7 ((t (:inherit default :weight bold :foreground "white" :font "Verdana"))))
+ '(org-level-8 ((t (:inherit default :weight bold :foreground "white" :font "Verdana"))))
+ '(shm-quarantine-face ((t (:background "dark slate gray"))))
+ '(tabbar-button ((t (:inherit tabbar-default :foreground "dark red"))))
+ '(tabbar-button-highlight ((t (:inherit tabbar-default))))
+ '(tabbar-default ((t (:inherit variable-pitch :background "#959A79" :foreground "black" :weight bold))))
+ '(tabbar-highlight ((t (:underline t))))
+ '(tabbar-selected ((t (:inherit tabbar-default :background "#95CA59"))))
+ '(tabbar-separator ((t (:inherit tabbar-default :background "#95CA59"))))
+ '(tabbar-unselected ((t (:inherit tabbar-default)))))
+
+
+(show-paren-mode 1)
 (setq indent-tabs-mode 't)
 
 
