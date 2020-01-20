@@ -1,5 +1,5 @@
 #see https://cask.readthedocs.io/en/latest/guide/installation.html
-#curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
+curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
 export PATH="$HOME/.cask/bin:$PATH"
 echo ${PWD}
 ln -fs ${PWD}/.emacs.d/init.el ~/.emacs.d/init.el
